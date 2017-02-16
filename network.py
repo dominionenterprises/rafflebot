@@ -1,5 +1,7 @@
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 import SimpleHTTPServer
+from pymongo import MongoClient
+import json
 from BaseHTTPServer import HTTPServer
 
 PORT_NUMBER = 8080
@@ -13,11 +15,26 @@ class myHandler(SimpleHTTPRequestHandler):
             self.path = '/public/'+ self.path
             return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET( self )
 
+        client = MongoClient()
+
+        db = client.raftl
+        raffle_collection = db.raffles
+        tweet_collection = db.tweets
+
+        returnjson = []
+        for raffle in raffle_collection.find():
+            tweetjson = []
+            tweets = tweet_collection.find( {'raffle_id':raffle['_id']} )
+            for tweet in tweets:
+                tweetjson.append( {'_id':tweet['_id'], 'user_id':tweet['user_id'], 'following':tweet['following'], 'body':tweet['body'] })
+
+            returnjson.append( {'id': str(raffle['_id']), 'max': raffle['max'], 'hashtag':raffle['hashtag'], 'tweets':tweetjson } )
+
         self.send_response(200)
         self.send_header('Content-type','text/html')
         self.end_headers()
         # Send the html message
-        self.wfile.write("Hello World!")
+        self.wfile.write(json.dumps( returnjson ) )
         return
 
     def do_POST(self):
