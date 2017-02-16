@@ -1,5 +1,6 @@
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 import SimpleHTTPServer
+import urlparse
 from pymongo import MongoClient
 import json
 from BaseHTTPServer import HTTPServer
@@ -40,6 +41,17 @@ class myHandler(SimpleHTTPRequestHandler):
     def do_POST(self):
         content_len = int(self.headers.getheader('content-length', 0))
         post_body = self.rfile.read(content_len)
+        params = urlparse.parse_qs( post_body )
+
+        client = MongoClient()
+
+        db = client.raftl
+        raffle_collection = db.raffles
+        raffle_collection.insert_one( {'hashtag':params['hashtag'][0], 'max':params['max'][0] } )
+
+        self.send_response(200)
+        self.send_header('Content-type','text/html')
+        self.end_headers()
 
 try:
 	#Create a web server and define the handler to manage the
