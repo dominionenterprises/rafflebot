@@ -47,7 +47,7 @@
         </div>
           
       </div> <!-- /row -->
-      <div align="center"class="sign-in-options">
+<div align="center" class="sign-in-options" ng-show="signin">
 <div class="btn btn-twitter" ng-click="openTwitter();">
 <span align="right"><i  style="font-size:24px" class="fa">&#xf081;</i></span>
 <span>Sign in with Twitter</span>
@@ -67,7 +67,32 @@
 <span>Sign in with Google+</span>
 </div>
 </div>
+<div ng-hide="signin" align="center">
+<div class="compose-tweet" align="center">
+Compose your kickoff raffle tweet here:
+</div>
+  <div align="center" class="twitter-profile-pic">
+    <img class="twitter-dp" src="img/twitter.png"></img>
+  </div>
 
+  <div class="compose-raffle-tweet">
+  Join our latest
+  <select>
+      <option value="raffle">raffle</option>
+      <option value="tweet-raffle">Tweets Raffle</option>
+      <option value="fb-raffle">Facebook Raffle</option>
+      <option value="insta-raffle">Instagram Raffle</option>
+  </select>
+  win a <input type="text" name="prize">. 
+  Enter using #<input type="text" name="idea">
+  </div>
+  <div class="">
+  
+  <button class="common-btn btn-twitter" ng-click="openRules();">Tweet
+  </button>
+  </div>
+
+</div>
       
 
      
