@@ -13,5 +13,5 @@ raffle_collection = db.raffles
 for raffle in raffle_collection.find():
     master.addRaffle( RaffleSlave( raffle['hashtag'], raffle['max'], raffle['_id'] ) )
 
-master.checkAlive()
+#master.checkAlive()
 master.runUpdates()

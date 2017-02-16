@@ -11,7 +11,7 @@ class RaffleSlave:
     alive = True
 
     def __init__(self, hashtag, max, id ):
-
+        self.Params = {}
         self.Params['max'] = max
         self.Params['hashtag'] = hashtag
         self.Params[ '_id' ] = id
@@ -23,7 +23,6 @@ class RaffleSlave:
 
     def update(self):
         public_tweets = self.api.search( '@hackuraffl #'+self.Params['hashtag'] )
-
         client = MongoClient()
         db = client.raftl
 
@@ -31,7 +30,7 @@ class RaffleSlave:
         followers = self.api.followers_ids('hackuraffl')
 
         for tweet in public_tweets:
-            tweetcollection.replace_one( {'_id':tweet.id}, {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text }, True )
+            tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text },'$unset':{'drawn':"" } }, True )
 
 
     def getParams(self):
