@@ -16,8 +16,8 @@ class RaffleSlave:
         self.Params['hashtag'] = hashtag
         self.Params[ '_id' ] = id
 
-        auth = tweepy.OAuthHandler( 'Vj5hr2GqqgmyU1d3uo4C2JU63', 'amknuv5eFOFjgUPb9u6BdYywz3wV2fQfMuK9ApAwRWfMqaR3No' )
-        auth.set_access_token( '2859266634-9EQRinUa8HoghhW7MQEMfnWycvLv9ameuhOKhFG', 'gSaPkTCjQGX9sTnTFTKS0GDRFmfrjxuVvFG4odKl5WzQ1' )
+        auth = tweepy.OAuthHandler( '5Xr8HX71XetZYmGV86AmcEgVo', '85ql1GsrOLTRre0AqqprX9Xtm5SkMOWzJk9OVJPRiLM8bm72JA' )
+        auth.set_access_token( '832250876551110658-MLGfJUjJH6Ktwlf51AQQlSO9QPcp3ew', 'UvCcyNqwH3X7u2KfRWeYvlOWxN2k1ONfjrlpxRK1Shj33' )
 
         self.api = tweepy.API( auth )
 
