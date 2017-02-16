@@ -2805,7 +2805,6 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .pagination-danger li.active > a,
 .pagination-danger li.active > span {
-  border-left-color: #ef897e;
   background-color: #c44133;
 }
 .pagination-danger li.active > a:hover,
@@ -2838,7 +2837,6 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .pagination-success li.active > a,
 .pagination-success li.active > span {
-  border-left-color: #75dda1;
   background-color: #27ad60;
 }
 .pagination-success li.active > a:hover,
@@ -2871,7 +2869,6 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .pagination-warning li.active > a,
 .pagination-warning li.active > span {
-  border-left-color: #f6d861;
   background-color: #cda70d;
 }
 .pagination-warning li.active > a:hover,
@@ -2904,7 +2901,6 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .pagination-info li.active > a,
 .pagination-info li.active > span {
-  border-left-color: #79bbe7;
   background-color: #2c81ba;
 }
 .pagination-info li.active > a:hover,
@@ -2937,7 +2933,6 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .pagination-inverse li.active > a,
 .pagination-inverse li.active > span {
-  border-left-color: #798795;
   background-color: #2c3e50;
 }
 .pagination-inverse li.active > a:hover,
@@ -4910,8 +4905,8 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
   display: inline-block;
   width: 132px;
   border-radius: 30px;
+  transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
 }
 .bootstrap-switch > div > span {
   font-weight: 700;
@@ -5927,7 +5922,7 @@ footer p {
 .footer-title {
   margin: 0 0 22px;
   padding-top: 21px;
-  font-size: 14px;
+  font-size: 24px;
   line-height: 40px;
 }
 .footer-brand {
