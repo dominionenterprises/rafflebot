@@ -112,6 +112,7 @@ ol.linenums {
   overflow: hidden;
   text-indent: -9999em;
   width: 236px;
+  transform: scaleX(.4) rotate(90deg);
 }
 .demo-logo small {
   color: rgba(52, 73, 94, 0.3);
