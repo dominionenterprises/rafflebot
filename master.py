@@ -1,3 +1,3 @@
 from raffleslave import RaffleSlave
 
-temp = RaffleSlave( 'raffle1', '3' )
+temp = RaffleSlave( 'raffle1', '2' )
