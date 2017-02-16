@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+  </head>
+
+  <body ng-app="raffl">
+    <div class="container" ng-controller="">
+
+      <!--raffl logo-->
+      <div style>
+        <img src="#">
+      </div>
+
+      <div style="margin: 10%;"></div>
+
+      <div class="col-md-12" style="margin-bottom:100px; border: 1px solid black;">
+        <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif">
+        <h6>"Latest raffles"</h6>
+      </div>
+
+      <!--The divider for all the active and completed raffles-->
+      <div class="col-md-12">
+        <!--The currently active raffle-->
+        <div class="live_raffle">
+          <div class="col-md-12">
+
+            <!--the raffle name-->
+            <div class="col-sm-4">
+              <p>Raffle #1</p>
+            </div>
+
+            <!--displays the number of entries in the raffle-->
+            <div class="col-sm-4">
+              <p class="amount_of_entries"># user entrants</p>
+            </div>
+
+            <!--Buttons to edit or stop the raffle-->
+            <div class="col-sm-4" style="vertical-align: top;">
+              <a href="#fakelink" class="btn btn-block btn-lg btn-default col-sm-4">Edit</a>
+              <a href="#fakelink" class="btn btn-block btn-lg btn-danger col-sm-4">Stop</a>
+            </div>
+          </div>
+        </div>
+
+        <!--Raffles that are already completed-->
+        <div class="completed_raffle">
+          <div class="col-md-12">
+
+            <!--raffle name-->
+            <div class="col-sm-4">
+              <p>Raffle #3</p>
+            </div>
+
+            <!--button to view previous winners-->
+            <div class="col-sm-4">
+              <a href="#fakelink" class="btn btn-block btn-lg btn-success">View Winner</a>
+            </div>
+            <div class="col-sm-4"></div>
+          </div>
+        </div>
+
+        <!--section for the new raffle-->
+        <div class="col-sm-12">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"><a href="#fakelink" class="btn btn-block btn-lg btn-success">New Raffle</a></div>
+        <div class="col-sm-4"></div>
+        </div>
+      </div>
+
+
+    </div>
+  </body>
+
+</html>
