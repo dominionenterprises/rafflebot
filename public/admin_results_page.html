@@ -3,11 +3,23 @@
 
 
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="docs/assets/css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/ShakrMedia/tuesday/master/build/tuesday.min.css" />
+
 <style type="text/css">
   .btn{
     width: 100%;
@@ -26,40 +38,46 @@
 
   <body ng-app="raffl" ng-controller="viewRaffleCtrl">
   <script src="index.js"></script>
-    
+
 
       <script>
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
 
-      
+<div class="demo-headline">
+  <h1 class="demo-logo animated tdStampInSwing">
 
-      <div class="col-md-12" style="margin-bottom:50px;">
+    Raffle Raffle Raffle<sup class="small">&reg;</sup>
+    <small>We do raffles.</small>
+  </h1>
+</div> <!-- /demo-headline -->
+
+      <div class="col-md-12">
        <!--  <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif"> -->
-       <center><h1>Latest Raffles</h1></center> 
+       <center><h6>Latest Raffles</h6></center>
       </div>
 
       <!--The divider for all the active and completed raffles-->
       <div class="col-md-12">
         <!--The currently active raffle-->
         <div class="live_raffle row">
-          
+
            <div class="col-md-12" ng-repeat="raffle in raffleDetailsArray" style="padding: 40px; border-bottom:1px dotted #666666;">
-          
-          
+
+
 
 
           <div class="col-sm-6">
           <div class="col-sm-2 col-md-2"><h4>{{raffle.hashtag}}</h4></div>
           <div class="col-sm-4 col-md-4"><h4># of tweets : {{raffle.count}}</h4></div>
             <div class="col-sm-4 col-md-4" style="vertical-align: top;" >
-              <button class="btn btn-block btn-lg btn-default col-sm-1 col-md-1" style="margin-bottom:10px;" ng-click="edit();">Edit</button> 
+              <button class="btn btn-block btn-lg btn-default col-sm-1 col-md-1" style="margin-bottom:10px;" ng-click="edit();">Edit</button>
               <div class="col-md-1"></div>
               <button ng-attr-id="{{'stop'+raffle.raffle_id}}" class="btn btn-block btn-lg btn-danger col-sm-1 col-md-1" style="margin-bottom:10px;" ng-click="stopRaffle(raffle.raffle_id);">Stop</button>
               <div class="col-md-1"></div>
-              <button id="winner" ng-attr-id="{{'pick'+raffle.raffle_id}}" class="btn btn-block btn-lg btn-warning col-sm-2 col-md-2" style="margin-bottom:10px;"" ng-click="pickUpWinner(raffle.raffle_id);">Pick a Winner</button> 
+              <button id="winner" ng-attr-id="{{'pick'+raffle.raffle_id}}" class="btn btn-block btn-lg btn-warning col-sm-2 col-md-2" style="margin-bottom:10px;"" ng-click="pickUpWinner(raffle.raffle_id);">Pick a Winner</button>
             </div>
             <!-- <div class="col-sm-3 col-md-3" ng-if="raffle.winner" >
               <button class="btn btn-block btn-lg btn-success">View Winner</button>
@@ -96,10 +114,10 @@ $(document).ready(function(){
         <div class="completed_raffle">
           <div class="col-md-12">
 
-  
+
 
             <!--button to view previous winners-->
-            
+
             <div class="col-sm-4"></div>
           </div>
         </div>
