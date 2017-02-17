@@ -32,7 +32,7 @@ class myHandler(SimpleHTTPRequestHandler):
             for tweet in tweets:
                 tweetjson.append( {'_id':tweet['_id'], 'user_id':tweet['user_id'], 'following':tweet['following'], 'body':tweet['body'], 'drawn':tweet.get('drawn', False),'username':tweet['username'], 'profile_img':tweet['profile_img'] })
 
-            returnjson.append( {'id': str(raffle['_id']), 'max': raffle['max'], 'hashtag':raffle['hashtag'], 'tweets':tweetjson } )
+            returnjson.append( {'id': str(raffle['_id']), 'max': raffle['max'], 'hashtag':raffle['hashtag'], 'tweets':tweetjson, 'owner':raffle.get('owner','hackuraffl') } )
 
         self.send_response(200)
         self.send_header('Content-type','text/html')
@@ -54,7 +54,7 @@ class myHandler(SimpleHTTPRequestHandler):
         tweet_collection = db.tweets
 
         if( self.path == '/createRaffle' ):
-            raffle_collection.insert_one( {'hashtag':params['hashtag'][0], 'max':params['max'][0] } )
+            raffle_collection.insert_one( {'hashtag':params['hashtag'][0], 'max':params['max'][0], 'owner':params['owner'][0] } )
 
             self.send_response(200)
             self.send_header('Content-type','text/html')
