@@ -28,12 +28,22 @@ class RaffleSlave:
         db = client.raftl
 
         tweetcollection = db.tweets
-        followers = self.api.followers_ids(self.Params['owner'])
+        #followers = self.api.followers_ids(self.Params['owner'])
+
+        existingTweets = tweetcollection.find()
 
         for tweet in public_tweets:
-            tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text, 'username':tweet.author.screen_name, 'profile_img':tweet.author.profile_image_url_https } }, True )
 
-            #tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':True,'raffle_id':self.Params['_id'], 'body':tweet.text },'$unset':{'drawn':"" } }, True )
+            val = 0
+            for checker in tweetcollection.find():
+                if( tweet.author.id == checker['user_id'] ):
+                    val+=1
+                    if( val >= self.Params['max'] ):
+                        break
+
+            if( val < self.Params['max'] ):
+                #tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text, 'username':tweet.author.screen_name, 'profile_img':tweet.author.profile_image_url_https } }, True )
+                tweetcollection.update_one({'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':True,'raffle_id':self.Params['_id'], 'body':tweet.text, 'username':tweet.author.screen_name, 'profile_img':tweet.author.profile_image_url_https } }, True )
 
 
     def getParams(self):
