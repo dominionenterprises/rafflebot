@@ -35,7 +35,7 @@
       <div class="demo-headline">
         <h1 class="demo-logo animated tdStampInSwing">
           <div class="logo"></div>
-          Raffl<sup class="small">&reg;</sup>
+          Raffle Raffle Raffle<sup class="small">&reg;</sup>
           <small>We do raffles.</small>
         </h1>
       </div> <!-- /demo-headline -->
@@ -72,11 +72,14 @@
 </div>
 <div ng-hide="signin" align="center">
 <div class="compose-tweet" align="center">
-Compose your kickoff raffle tweet here:
+<h6>Compose your first raffle tweet here.</h6>
+
+<!--
 </div>
   <div align="center" class="twitter-profile-pic">
     <img class="twitter-dp" src="img/twitter.png"></img>
   </div>
+-->
 
   <div class="compose-raffle-tweet">
   Join our latest
@@ -86,13 +89,17 @@ Compose your kickoff raffle tweet here:
       <option value="fb-raffle">Facebook Raffle</option>
       <option value="insta-raffle">Instagram Raffle</option>
   </select>
-  win a <input type="text" name="prize">.
-  Enter using #<input type="text" name="idea">
+  win a <input type="text" name="prize" style="margin-bottom: 10px;"> .
+  Enter using <div class="input-group" style="width:30%;">
+  <span class="input-group-addon" id="basic-addon1">#</span>
+  <input type="text" class="form-control" name="idea" placeholder="Hashtag" aria-describedby="basic-addon1">
+</div>
   </div>
   <div class="">
 
-  <button class="common-btn btn-twitter" ng-click="openRules();">Tweet
+  <button class="btn btn-success" ng-click="openRules();">Next
   </button>
+
   </div>
 
 </div>
