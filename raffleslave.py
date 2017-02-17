@@ -22,6 +22,7 @@ class RaffleSlave:
         self.api = tweepy.API( auth )
 
     def update(self):
+        print self.Params
         public_tweets = self.api.search( '@hackuraffl #'+self.Params['hashtag'] )
         client = MongoClient()
         db = client.raftl
@@ -31,6 +32,8 @@ class RaffleSlave:
 
         for tweet in public_tweets:
             tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text },'$unset':{'drawn':"" } }, True )
+
+            #tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':True,'raffle_id':self.Params['_id'], 'body':tweet.text },'$unset':{'drawn':"" } }, True )
 
 
     def getParams(self):

@@ -78,12 +78,17 @@ class myHandler(SimpleHTTPRequestHandler):
             api = tweepy.API( auth )
 
             user = api.get_user( tweet['user_id'] )
-            api.update_status( '@' + user.screen_name + ' is the winner!' )
+            api.update_status( '@' + user.screen_name + ' is the winner!', str(tweet['_id']) )
 
             tweetjson = {'_id':tweet['_id'], 'user_id':tweet['user_id'], 'following':tweet['following'], 'body':tweet['body'], 'drawn':tweet.get('drawn', False) };
 
+            self.send_response(200)
+            self.send_header('Content-type','text/html')
+            self.end_headers()
+
             self.wfile.write( json.dumps( tweetjson ) )
             tweet_collection.update_one( {'_id':tweet['_id']}, {'$set':tweet} )
+            return
 try:
 	#Create a web server and define the handler to manage the
 	#incoming request
