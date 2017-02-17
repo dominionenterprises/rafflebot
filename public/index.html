@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Test</title>
-    <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version."/>
+    <title>Raffle Raffle Raffle!</title>
+    <meta name="description" content="Raffle raffle raffle!"/>
 
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
@@ -20,8 +20,8 @@
   <link rel="stylesheet" href="bootstrap/3.3.7/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="bootstrap/3.3.7/css/bootstrap.css">
-  
-  <link rel="stylesheet" type="text/css" href="http://cdn.rawgit.com/ShakrMedia/tuesday/master/build/tuesday.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/ShakrMedia/tuesday/master/build/tuesday.min.css" />
 
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -40,14 +40,16 @@
           <small>We do raffles.</small>
         </h1>
       </div> <!-- /demo-headline -->
-
+      <a class="twitter-share-button"
+        href="https://twitter.com/intent/tweet?text=Hello%20world">
+      Tweet</a>
       <!--div class="row demo-row">
         <div class="col-xs-6 col-xs-offset-3">
           <a href="#fakelink" class="btn btn-block btn-lg btn-info"><span class="fui-twitter"></span> Sign In With Twitter</a>
         </div>
-          
+
       </div> <!-- /row -->
-      <div align="center"class="sign-in-options">
+<div align="center" class="sign-in-options" ng-show="signin">
 <div class="btn btn-twitter" ng-click="openTwitter();">
 <span align="right"><i  style="font-size:24px" class="fa">&#xf081;</i></span>
 <span>Sign in with Twitter</span>
@@ -67,10 +69,35 @@
 <span>Sign in with Google+</span>
 </div>
 </div>
+<div ng-hide="signin" align="center">
+<div class="compose-tweet" align="center">
+Compose your kickoff raffle tweet here:
+</div>
+  <div align="center" class="twitter-profile-pic">
+    <img class="twitter-dp" src="img/twitter.png"></img>
+  </div>
 
-      
+  <div class="compose-raffle-tweet">
+  Join our latest
+  <select>
+      <option value="raffle">raffle</option>
+      <option value="tweet-raffle">Tweets Raffle</option>
+      <option value="fb-raffle">Facebook Raffle</option>
+      <option value="insta-raffle">Instagram Raffle</option>
+  </select>
+  win a <input type="text" name="prize">.
+  Enter using #<input type="text" name="idea">
+  </div>
+  <div class="">
 
-     
+  <button class="common-btn btn-twitter" ng-click="openRules();">Tweet
+  </button>
+  </div>
+
+</div>
+
+
+
 
     </div> <!-- /container -->
 

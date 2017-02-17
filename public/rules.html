@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version."/>
+
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="docs/assets/css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bootstrap/3.3.7/css/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style type="text/css">
+  .demo-headline{
+  padding:10px;
+  }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+  </script>
+  </head>
+
+<body ng-app="raffl" ng-controller="socialRaffle">
+<script src="index.js"></script>
+    <div class="container">
+      <div class="demo-headline">
+        <h1 class="demo-logo">
+          <div class="logo"></div>
+          Raffl<sup class="small">&reg;</sup>
+          <small>We do raffles.</small>
+        </h1>
+      </div> <!-- /demo-headline -->
+
+    
+     <div align="center">
+       <form >
+       <h6>Set the basic rules for your raffle</h6>
+       # of Entries <input type="text" name="Entries"></br></br>
+       Ends of <input type="date" name="end-date"></br></br>
+       <a href="#" data-toggle="tooltip" title="One person can hashtag for 5times!">?</a>
+       Allow multiple entries <input type="checkbox" name="multiple-entries"></br></br>
+       <input type="button" class="btn-red" name="start-raffle" value="Start Raffl!!" ng-click="viewRaffles();">
+       </form>
+     </div>
+
+    </div> <!-- /container -->
+
+    <footer class="hide">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="footer-title text-center">Raffl Copyright 2017</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/vendor/video.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
+    <script src="docs/assets/js/application.js"></script>
+
+  </body>
+</html>

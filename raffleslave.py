@@ -4,34 +4,36 @@ from pymongo import MongoClient
 class RaffleSlave:
     "The class responsbile for a single raffle, a new instance for each individual raffle"
 
-    Params = { 'max':-1, 'hashtag':' ', '_id':-1 }
+    Params = None
 
     api = None
 
     alive = True
 
-    def __init__(self, hashtag, max, id ):
-
+    def __init__(self, hashtag, max, id, owner ):
+        self.Params = {}
         self.Params['max'] = max
         self.Params['hashtag'] = hashtag
         self.Params[ '_id' ] = id
+        self.Params[ 'owner' ] = owner
 
-        auth = tweepy.OAuthHandler( 'Vj5hr2GqqgmyU1d3uo4C2JU63', 'amknuv5eFOFjgUPb9u6BdYywz3wV2fQfMuK9ApAwRWfMqaR3No' )
-        auth.set_access_token( '2859266634-9EQRinUa8HoghhW7MQEMfnWycvLv9ameuhOKhFG', 'gSaPkTCjQGX9sTnTFTKS0GDRFmfrjxuVvFG4odKl5WzQ1' )
+        auth = tweepy.OAuthHandler( '5Xr8HX71XetZYmGV86AmcEgVo', '85ql1GsrOLTRre0AqqprX9Xtm5SkMOWzJk9OVJPRiLM8bm72JA' )
+        auth.set_access_token( '832250876551110658-MLGfJUjJH6Ktwlf51AQQlSO9QPcp3ew', 'UvCcyNqwH3X7u2KfRWeYvlOWxN2k1ONfjrlpxRK1Shj33' )
 
         self.api = tweepy.API( auth )
 
     def update(self):
-        public_tweets = self.api.search( '@hackuraffl #'+self.Params['hashtag'] )
-
+        public_tweets = self.api.search( '@'+self.Params['owner']+' #'+self.Params['hashtag'] )
         client = MongoClient()
         db = client.raftl
 
         tweetcollection = db.tweets
-        followers = self.api.followers_ids('hackuraffl')
+        followers = self.api.followers_ids(self.Params['owner'])
 
         for tweet in public_tweets:
-            tweetcollection.replace_one( {'_id':tweet.id}, {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text }, True )
+            tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text, 'username':tweet.author.screen_name, 'profile_img':tweet.author.profile_image_url_https } }, True )
+
+            #tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':True,'raffle_id':self.Params['_id'], 'body':tweet.text },'$unset':{'drawn':"" } }, True )
 
 
     def getParams(self):

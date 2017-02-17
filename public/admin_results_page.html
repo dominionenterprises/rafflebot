@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<style type="text/css">
+  .btn{
+    width: 40%;
+
+  }
+</style>
+  </head>
+
+  <body ng-app="raffl" ng-controller="viewRaffleCtrl">
+  <script src="index.js"></script>
+    
+
+      
+
+      <div style="margin: 10%;"></div>
+
+      <div class="col-md-12" style="margin-bottom:100px; border: 1px solid black;">
+        <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif">
+        <h6>"Latest raffles"</h6>
+      </div>
+
+      <!--The divider for all the active and completed raffles-->
+      <div class="col-md-12">
+        <!--The currently active raffle-->
+        <div class="live_raffle row">
+          
+          <div class="col-md-12" ng-repeat="raffle in raffleDetailsArray" style="padding-bottom: 10px;">
+          <div class="col-sm-3 col-md-4">{{raffle.hashtag}}</div>
+          <div class="col-sm-3 col-md-4"># of tweets : {{raffle.count}}</div>
+            <div class="col-sm-3" style="vertical-align: top;" ng-if="!raffle.winner">
+              <button class="btn btn-block btn-lg btn-default col-sm-2">Edit</button> 
+              <div class="col-sm-1"></div>
+              <button class="btn btn-block btn-lg btn-danger col-sm-2">Stop</button> 
+            </div>
+            <div class="col-sm-4">
+              <a href="#fakelink" class="btn btn-block btn-lg btn-success" ng-if="raffle.winner">View Winner</a>
+            </div>
+          </div>
+        </div>
+
+        <!--Raffles that are already completed-->
+        <div class="completed_raffle">
+          <div class="col-md-12">
+
+  
+
+            <!--button to view previous winners-->
+            
+            <div class="col-sm-4"></div>
+          </div>
+        </div>
+
+        <!--section for the new raffle-->
+        <div class="col-sm-12">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+        <input type="button" name="" class="btn btn-block btn-lg btn-success" ng-click="newRaffle();" value="New Raffle"></div>
+        <div class="col-sm-4"></div>
+        </div>
+      </div>
+
+
+    </div>
+  </body>
+
+</html>
