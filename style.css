@@ -24,7 +24,7 @@
 	color:white;
 }
 .sign-in-options{
-	margin-top: 3%;
+	margin-top: 15%;
 }
 .compose-raffle-tweet{
 	 border: 4px solid #0084b4;
@@ -39,18 +39,10 @@
 	width:10%;
 }
 .compose-tweet{
-	margin-top: 3%;
+	margin-top: 10%;
 }
 .common-btn{
 	width:8%;
 	display: block !important;
 	text-align :center;
-}
-.btn-red{
-	background-color: #ffbf00;
-	border-radius: 10px;
-}
-.img-highlight{
-	border-radius: 50%;
-
 }
