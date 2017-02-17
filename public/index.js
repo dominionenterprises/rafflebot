@@ -110,10 +110,18 @@ app.controller("viewRaffleCtrl", function($scope,$window,$http) {
 	window.location.href = "index.html";
 };
 $scope.getRaffles();
+
 $scope.stopRaffle = function(raffleId){
     $scope.pickUpWinner(raffleId);
-
+    var disableStopVar = 'stop'+raffleId;
+    var disablePickVar = 'pick'+raffleId;
+    document.getElementById(disableStopVar).disabled = true;
+    document.getElementById(disablePickVar).disabled = true;
 };
+
+$scope.edit = function(){
+window.location.href = "rules.html";
+}
 
 });
     
