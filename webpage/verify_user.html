@@ -8,6 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="docs/assets/css/demo.css" rel="stylesheet">
 
   </head>
 
@@ -21,30 +23,21 @@
           </div>
         </div>
 
-        <!--button to enter twitter id-->
-        <div class="col-sm-12" style="margin-top: 10px;">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4" style="display: inline;">
-            <a class="btn btn-info btn-lg" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-lg']);"> <i class="fa fa-twitter"></i> Enter Twitter id</a>
+
+        <div class="input-group col-xs-4" style="margin: 10px 0">
+          <span class="input-group-addon btn-info" id="basic-addon1"><i class="fa fa-twitter"></i> Enter Twitter Id</span>
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group col-xs-4">
+          <span class="input-group-addon btn-danger" id="basic-addon1"><i class="fa fa-google"></i> Enter Email</span>
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="col-sm-12" style="margin: 10px 0;">
+          <div class="col-sm-4 col-sm-offset-4" style="display: inline;">
+            <a class="btn btn-block btn-warning btn-lg" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-lg']);">See Who Won</a>
           </div>
-          <div class="col-sm-4"></div>
-        </div>
-
-        <!--button to enter email-->
-        <div class="col-sm-12" style="margin-top: 10px">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" style="display: inline-block;">
-              <a class="btn btn-danger btn-lg" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-lg']);"> <i class="fa fa-google"></i> Enter Email</a>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
-
-        <div class="col-sm-12" style="margin-top: 10px">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" style="display: inline-block;">
-              <a href="#fakelink" class="btn btn-warning btn-lg btn-default">FIND OUT</a>
-            </div>
-            <div class="col-sm-4"></div>
         </div>
 
       </div>
