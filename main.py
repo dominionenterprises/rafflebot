@@ -11,7 +11,7 @@ raffle_collection = db.raffles
 " raffle_id tweet_id user_id "
 
 for raffle in raffle_collection.find():
-    master.addRaffle( RaffleSlave( raffle['hashtag'], raffle['max'], raffle['_id'] ) )
+    master.addRaffle( RaffleSlave( raffle['hashtag'], raffle['max'], raffle['_id'], raffle.get('owner','hackuraffl') ) )
 
 #master.checkAlive()
 master.runUpdates()
