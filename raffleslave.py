@@ -41,7 +41,7 @@ class RaffleSlave:
                     if( val >= self.Params['max'] ):
                         break
 
-            if( val < self.Params['max'] && tweet.author.screen_name != self.Params['owner'] ):
+            if( val < self.Params['max'] and tweet.author.screen_name != self.Params['owner'] ):
                 tweetcollection.update_one( {'_id':tweet.id}, {'$set': {'_id':tweet.id, 'user_id':tweet.author.id, 'following':tweet.author.id in followers,'raffle_id':self.Params['_id'], 'body':tweet.text, 'username':tweet.author.screen_name, 'profile_img':tweet.author.profile_image_url_https } }, True )
 
     def getParams(self):
