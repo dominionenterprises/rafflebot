@@ -13,65 +13,128 @@
   <body ng-app="raffl">
     <div class="container" ng-controller="">
 
-      <!--raffl logo-->
-      <div style>
-        <img src="#">
-      </div>
-
       <div style="margin: 10%;"></div>
 
-      <div class="col-md-12" style="margin-bottom:100px; border: 1px solid black;">
-        <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif">
-        <h6>"Latest raffles"</h6>
+
+
+      <div class="col-md-12" style="margin-bottom:100px;">
+        <div class="col-md-12">
+          <div class="col-md-2">
+            <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif">
+          </div>
+          <div class="col-md-10">
+            <h6>"Latest raffles"</h6>
+          </div>
+        </div>
       </div>
 
       <!--The divider for all the active and completed raffles-->
       <div class="col-md-12">
+        <table style="width:100%">
+          <tr>
+            <th>Raffle Name</th>
+            <th># of entrants</th>
+            <th>Options</th>
+          </tr>
+
         <!--The currently active raffle-->
-        <div class="live_raffle">
+        <!--row #1-->
+        <tr>
+        <div class="live_raffle_1">
           <div class="col-md-12">
 
+            <td>
             <!--the raffle name-->
             <div class="col-sm-4">
               <p>Raffle #1</p>
             </div>
+            </td>
+
 
             <!--displays the number of entries in the raffle-->
+            <td>
             <div class="col-sm-4">
               <p class="amount_of_entries"># user entrants</p>
             </div>
+            </td>
 
             <!--Buttons to edit or stop the raffle-->
+            <td>
             <div class="col-sm-4" style="vertical-align: top;">
               <a href="#fakelink" class="btn btn-block btn-lg btn-default col-sm-4">Edit</a>
               <a href="#fakelink" class="btn btn-block btn-lg btn-danger col-sm-4">Stop</a>
             </div>
+            </td>
+
           </div>
         </div>
+        </tr>
+
+        <!--The currently active raffle-->
+        <!--row #2-->
+        <tr>
+        <div class="live_raffle_1">
+          <div class="col-md-12">
+
+            <td>
+            <!--the raffle name-->
+            <div class="col-sm-4">
+              <p>Raffle #2</p>
+            </div>
+            </td>
+
+
+            <!--displays the number of entries in the raffle-->
+            <td>
+            <div class="col-sm-4">
+              <p class="amount_of_entries"># user entrants</p>
+            </div>
+            </td>
+
+            <!--Buttons to edit or stop the raffle-->
+            <td>
+            <div class="col-sm-4" style="vertical-align: top;">
+              <a href="#fakelink" class="btn btn-block btn-lg btn-default col-sm-4">Edit</a>
+              <a href="#fakelink" class="btn btn-block btn-lg btn-danger col-sm-4">Stop</a>
+            </div>
+            </td>
+
+          </div>
+        </div>
+        </tr>
 
         <!--Raffles that are already completed-->
+        <!--raffle #3-->
+        <tr>
         <div class="completed_raffle">
           <div class="col-md-12">
 
             <!--raffle name-->
+            <td>
             <div class="col-sm-4">
               <p>Raffle #3</p>
             </div>
+            </td>
 
             <!--button to view previous winners-->
+            <td>
             <div class="col-sm-4">
               <a href="#fakelink" class="btn btn-block btn-lg btn-success">View Winner</a>
             </div>
             <div class="col-sm-4"></div>
+            <td>
           </div>
         </div>
+        </tr>
+        </table>
 
         <!--section for the new raffle-->
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="margin-top: 10%">
         <div class="col-sm-4"></div>
         <div class="col-sm-4"><a href="#fakelink" class="btn btn-block btn-lg btn-success">New Raffle</a></div>
         <div class="col-sm-4"></div>
         </div>
+
       </div>
 
 
