@@ -30,7 +30,7 @@ class myHandler(SimpleHTTPRequestHandler):
             tweetjson = []
             tweets = tweet_collection.find( {'raffle_id':raffle['_id']} )
             for tweet in tweets:
-                tweetjson.append( {'_id':tweet['_id'], 'user_id':tweet['user_id'], 'following':tweet['following'], 'body':tweet['body'], 'drawn':tweet.get('drawn', False) })
+                tweetjson.append( {'_id':tweet['_id'], 'user_id':tweet['user_id'], 'following':tweet['following'], 'body':tweet['body'], 'drawn':tweet.get('drawn', False),'username':tweet['username'], 'profile_img':tweet['profile_img'] })
 
             returnjson.append( {'id': str(raffle['_id']), 'max': raffle['max'], 'hashtag':raffle['hashtag'], 'tweets':tweetjson } )
 
