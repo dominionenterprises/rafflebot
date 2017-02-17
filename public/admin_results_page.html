@@ -7,11 +7,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    
 <style type="text/css">
   .btn{
-    width: 40%;
+    width: 100%;
 
   }
+  .img-highlight{
+  border-radius: 50%;
+  border:3px solid green;
+  padding:10px;
+}
+
+}
+
 </style>
   </head>
 
@@ -19,13 +28,17 @@
   <script src="index.js"></script>
     
 
+      <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
       
 
-      <div style="margin: 10%;"></div>
-
-      <div class="col-md-12" style="margin-bottom:100px; border: 1px solid black;">
-        <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif">
-        <h6>"Latest raffles"</h6>
+      <div class="col-md-12" style="margin-bottom:50px;">
+       <!--  <img src= "http://static.planetminecraft.com/files/avatar/1883699_0.gif"> -->
+       <center><h1>Latest Raffles</h1></center> 
       </div>
 
       <!--The divider for all the active and completed raffles-->
@@ -33,19 +46,51 @@
         <!--The currently active raffle-->
         <div class="live_raffle row">
           
-          <div class="col-md-12" ng-repeat="raffle in raffleDetailsArray" style="padding-bottom: 10px;">
-          <div class="col-sm-3 col-md-4">{{raffle.hashtag}}</div>
-          <div class="col-sm-3 col-md-4"># of tweets : {{raffle.count}}</div>
-            <div class="col-sm-3" style="vertical-align: top;" ng-if="!raffle.winner">
-              <button class="btn btn-block btn-lg btn-default col-sm-2">Edit</button> 
-              <div class="col-sm-1"></div>
-              <button class="btn btn-block btn-lg btn-danger col-sm-2">Stop</button> 
+           <div class="col-md-12" ng-repeat="raffle in raffleDetailsArray" style="padding: 40px; border-bottom:1px dotted #666666;">
+          
+          
+
+
+          <div class="col-sm-6">
+          <div class="col-sm-2 col-md-2"><h4>{{raffle.hashtag}}</h4></div>
+          <div class="col-sm-4 col-md-4"><h4># of tweets : {{raffle.count}}</h4></div>
+            <div class="col-sm-4 col-md-4" style="vertical-align: top;" >
+              <button class="btn btn-block btn-lg btn-default col-sm-1 col-md-1" style="margin-bottom:10px;" ng-click="edit();">Edit</button> 
+              <div class="col-md-1"></div>
+              <button ng-attr-id="{{'stop'+raffle.raffle_id}}" class="btn btn-block btn-lg btn-danger col-sm-1 col-md-1" style="margin-bottom:10px;" ng-click="stopRaffle(raffle.raffle_id);">Stop</button>
+              <div class="col-md-1"></div>
+              <button id="winner" ng-attr-id="{{'pick'+raffle.raffle_id}}" class="btn btn-block btn-lg btn-warning col-sm-2 col-md-2" style="margin-bottom:10px;"" ng-click="pickUpWinner(raffle.raffle_id);">Pick a Winner</button> 
             </div>
-            <div class="col-sm-4">
-              <a href="#fakelink" class="btn btn-block btn-lg btn-success" ng-if="raffle.winner">View Winner</a>
+            <!-- <div class="col-sm-3 col-md-3" ng-if="raffle.winner" >
+              <button class="btn btn-block btn-lg btn-success">View Winner</button>
+            </div> -->
+           </div>
+
+
+           <div class="col-sm-6">
+            <div class="col-sm-3 col-md-3" style="vertical-align: top;" ng-repeat="raffleBuddy in raffle.joinedRaffle">
+
+              <div style="padding:10px;" data-toggle="tooltip" title="{{raffleBuddy.username}}">
+
+              <img ng-if="raffleBuddy.drawn" class="img-highlight" ng-src={{raffleBuddy.profile_img}}>
+              <img ng-if="!raffleBuddy.drawn"  ng-src={{raffleBuddy.profile_img}}>
+              </div>
+              <!-- <div>{{winner.twitter_id}}</div> -->
+              </div>
+            </div>
+
+
+
+
+            </div>
+
             </div>
           </div>
-        </div>
+
+
+
+
+
 
         <!--Raffles that are already completed-->
         <div class="completed_raffle">
@@ -62,8 +107,9 @@
         <!--section for the new raffle-->
         <div class="col-sm-12">
         <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-        <input type="button" name="" class="btn btn-block btn-lg btn-success" ng-click="newRaffle();" value="New Raffle"></div>
+        <div class="col-sm-4"></br></br>
+        <input type="button" name="" class="btn btn-block btn-lg btn-success" ng-click="newRaffle();" value="New Raffle">
+        </br></br></div>
         <div class="col-sm-4"></div>
         </div>
       </div>
