@@ -23,7 +23,7 @@ class RaffleSlave:
         self.api = tweepy.API( auth )
 
     def update(self):
-        public_tweets = self.api.search( '@'+self.Params['owner']+' #'+self.Params['hashtag'] )
+        #public_tweets = self.api.search( '@'+self.Params['owner']+' #'+self.Params['hashtag'] )
         client = MongoClient()
         db = client.raftl
 
@@ -32,8 +32,9 @@ class RaffleSlave:
 
         existingTweets = tweetcollection.find()
 
-        for tweet in public_tweets:
+        cursor = tweepy.Cursor( self.api.search, q = '@'+self.Params['owner']+' #'+self.Params['hashtag'])
 
+        for tweet in cursor.items():
             val = 0
             for checker in tweetcollection.find():
                 if( tweet.author.id == checker['user_id'] ):
